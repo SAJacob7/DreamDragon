@@ -1,0 +1,63 @@
+/* Root Variables for Global Styling */
+:root {
+    --primary-font: 'PT Sans', sans-serif;
+    --white: #fff;
+    --text-dark: #242424;
+}
+
+/* Universal Reset and Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: var(--primary-font);
+}
+
+/* General Section Styles for Layout */
+.page-section {
+    display: flex;
+    height: 90vh;
+    align-items: center;
+    justify-content: center;
+    font-size: 100px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: var(--white);
+}
+
+/* Specific Backgrounds for Each Section */
+.home {
+    background-image: url('./images/pixel_art_large.png');
+}
+
+.calendar {
+    background-image: url('./images/pixel_art_large.png');
+}
+
+.game {
+    background-image: url('./images/pixel_art_large.png');
+}
+
+.login {
+    background-image: url('./images/pixel_art_large.png');
+}
+
+/* Mobile responsiveness */
+@media screen and (max-width: 768px) {
+    .home, .calendar, .game, .login {
+        font-size: 2rem; /* Adjust font size for smaller screens */
+    }
+}
+
+/* Optional Overlay to Improve Text Contrast */
+.page-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* 50% opacity black overlay */
+    z-index: -1;
+}

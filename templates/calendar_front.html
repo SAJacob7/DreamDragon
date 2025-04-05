@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sleep Tracker</title>
+  <link rel="stylesheet" href="../static/css/calendar_sleep.css">
+</head>
+<body>
+  <h1>Sleep Tracker</h1>
+  <div id="controls">
+    <button class="button_month" onclick="changeMonth(-1)">&lt;</button>
+    <div id="calendarContainer">
+      <div id="monthYearDisplay"></div>
+      <table id="calendarTable">
+        <thead>
+          <tr>
+            <th>Sun</th>
+            <th>Mon</th>
+            <th>Tue</th>
+            <th>Wed</th>
+            <th>Thu</th>
+            <th>Fri</th>
+            <th>Sat</th>
+          </tr>
+        </thead>
+        <tbody id="calendarBody">
+          <!-- Days will be dynamically inserted here -->
+        </tbody>
+      </table>
+    </div>
+    <button class="button_month" onclick="changeMonth(1)">&gt;</button>
+  </div>  
+  <div id="inputModal" style="display:none;">
+    <p>Enter your sleep hours for <span id="selectedDate"></span>:</p>
+    <input type="number" id="sleepHours" placeholder="Hours" step="0.1" min="0" max="24" class="styledInput">
+    <button class="save_or_close" onclick="saveSleepData()">Save</button>
+    <button class="save_or_close" onclick="closeModal()">Cancel</button>
+  </div>
+  
+  <script src="{{ url_for('static', filename='js/calendar_sleep.js') }}"></script>
+</body>
+</html>

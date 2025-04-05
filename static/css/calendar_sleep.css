@@ -1,0 +1,176 @@
+/* General Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  /* Control Section Styling */
+  #controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+    max-width: 900px;
+  }
+  
+  #monthYearDisplay {
+    margin-top: 40px; /* Adds extra space below the month/year display */
+    margin-bottom: 40px; /* Adds extra space below the month/year display */
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+  }
+  
+  /* Month Navigation Buttons */
+  .button_month {
+    background-color: #f799cb;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 0 30px; /* Adds space between buttons and calendar */
+  }
+  
+  .button_month:hover {
+    background-color: #e89bce;
+  }
+  .save_or_close {
+    background-color: #e89bce;
+    color: white;
+    border-radius: 50%;
+    font-size: 10px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.save_or_close:hover {
+    background-color: #e89bce;
+    transform: scale(1.05); /* Adds pop-out effect */
+}
+  
+  /* Calendar Container Styling */
+  #calendarContainer {
+    max-width: 800px;
+    margin: auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    
+  }
+  
+  /* Calendar Table Styling */
+  #calendarTable {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed; /* Ensures cells are the same size */
+  }
+  #calendarTable th {
+    background-color: #6C63FF;
+    color: white;
+    font-size: 14px; /* Smaller text for weekday headers */
+    padding: 5px; /* Reduced padding */
+    height: 30px; /* Sets the explicit height of the headers */
+    vertical-align: middle; /* Ensures text is centered */
+  }
+
+  #calendarTable td {
+    border: 1px solid #ddd;
+    text-align: center;
+    height: 100px; /* Fixed height for consistency */
+  }
+  
+  #calendarTable th {
+    background-color: #e2a4f3;
+    color: white;
+    font-size: 14px; /* Reduce font size */
+    padding: 5px; /* Smaller padding for more compact headers */
+  }
+  
+  #calendarTable td {
+    font-size: 16px;
+    cursor: pointer;
+    position: relative;
+    vertical-align: top;
+  }
+  
+  /* Styling for Logged Days */
+  #calendarTable td.logged {
+    background-color: #d5b1ef;
+  }
+  
+  /* Styling for Selected Day */
+  #calendarTable td.selected {
+    border: 2px solid #cad5f0;
+    background-color: #95abec;
+  }
+  
+  /* Hover Effect for Days */
+  #calendarTable td:hover {
+    background-color: #f0f0f0;
+  }
+  
+  /* Sleep Amount Inside Calendar Cell */
+  .sleepAmount {
+    font-size: 14px;
+    color: #444;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+  }
+  
+  /* Input Modal Styling */
+  #inputModal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    border-radius: 10px;
+  }
+  /* Styled Input Field */
+.styledInput {
+    width: 80%;
+    padding: 5px;
+    font-size: 18px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    margin: 10px 0; /* Adds space between buttons and input */
+  }
+  
+  /* Focus Effect */
+  .styledInput:focus {
+    border-color: #95abec; /* Adds a clear visual indicator for focus */
+    box-shadow: 0 0 8px #cad5f0;
+  }
+  
+  /* Placeholder Styling */
+  .styledInput::placeholder {
+    color: #aaa; /* Gray color for placeholder text */
+    font-style: italic;
+  }
+  
+  

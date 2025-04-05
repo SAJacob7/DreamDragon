@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Home</title>
+     <style>
+         body {
+             font-family: Arial, sans-serif;
+             text-align: center;
+             margin: 50px;
+         }
+         .nav-buttons {
+             margin-top: 20px;
+         }
+         button {
+             padding: 10px 20px;
+             margin: 10px;
+             font-size: 16px;
+             cursor: pointer;
+         }
+     </style>
+ </head>
+ 
+ <body>
+     <h1>Hello {{ user_data['First Name'] }} {{ user_data['Last Name'] }}!</h1>
+ 
+     <div class="profile-info">
+         <p><strong>First Name:</strong> {{ user_data['First Name'] }}</p>
+         <p><strong>Last Name:</strong> {{ user_data['Last Name'] }}</p>
+         <p><strong>Username:</strong> {{ user_data['Username'] }}</p>
+         <p><strong>Sleep Goal:</strong> {{ user_data['Goal'] }}</p>
+         <p><strong>Sleep Points:</strong> {{ user_data['Points'] }}</p>
+         <p><strong>Dragon Level:</strong> {{ user_data['Dragon Level'] }}</p>
+     </div>
+     
+     <a href="{{ url_for('logout') }}">
+         <button>Logout</button>
+     </a>    
+ </body>
+ </html>
