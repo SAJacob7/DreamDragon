@@ -21,34 +21,18 @@ class Database:
        self.users.create_index("UserID", unique=True)
 
        
-      # def get_user_data(self, username):
-      #    user = self.users.find_one({"username": username})
-      #    if user:
-      #       return {
-      #          "First Name": user.get("first_name"),
-      #           "Last Name": user.get("last_name"),
-      #           "Goal": user.get("goal"),
-      #           "Username": user.get("username")
-      #       }
-      #    return None
-
    def get_user_data(self, username):
-        print(f"Fetching data for username: {username}")  # Debugging the username value
-        user = self.users.find_one({"UserID": username})  # Change from "username" to "UserID"
-        print("here")
-        print(user)
-        if user:
-            print("in if")
+         user = self.users.find_one({"UserID": username})
+         if user:
             return {
-                "First Name": user.get("First Name"),  # Ensure field names match case-sensitive in the DB
+                "First Name": user.get("First Name"),
                 "Last Name": user.get("Last Name"),
-                "Goal": user.get("Sleep Goal"),
                 "Username": user.get("UserID"),
                 "Points": user.get("Sleep Points"),
-                "Dragon Level": user.get("Dragon Level")
+                "Dragon Level": user.get("Dragon Level"),
+                "Game Points": user.get("Game Points")
             }
-        print("No user found")
-        return None
+         return None
 
 
 
