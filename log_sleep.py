@@ -4,6 +4,8 @@ from database import Database
 from datetime import datetime
 import pymongo
 import os
+import webbrowser
+from threading import Timer
 import google.generativeai as genai
 
 app = Flask(__name__)
@@ -208,6 +210,12 @@ def logout():
 
 
 
-
+browser_opened = False  # Track if the browser has been opened
+def open_browser():
+   global browser_opened
+   if not browser_opened:
+       webbrowser.open_new("http://127.0.0.1:5000")  # Adjust port if necessary
+       browser_opened = True # Already opened the page.
 if __name__ == '__main__':
-    app.run(debug=True)
+   Timer(1, open_browser).start()  # Delay of 1 second to allow server to start
+   app.run(debug=False)
