@@ -6,6 +6,7 @@ import pymongo
 import bcrypt
 import uuid
 import os
+import google.generativeai as genai
 
 app = Flask(__name__)
 CORS(app)
@@ -152,6 +153,49 @@ def profile():
      return render_template('profile.html', user_data=user_data)
  
  
+@app.route('/api/feedback', methods=['POST'])
+def sleep_analytics():
+    try:
+        # Get input data from the frontend
+        data = request.json
+        hours = data['hours']
+
+        # Configure Gemini API
+        genai.configure(api_key="AIzaSyDDjnp_7zdCM6v4cO3Rr7yHF36T_JHWO-A")
+        generative_config = {
+            "temperature": 0.9,
+            "top_p": 1,
+            "top_k": 1,
+            "max_output_tokens": 300,
+            "response_mime_type": "text/plain",
+        }
+        safety_settings = [
+            {"category": "HARM_CATEGORY_HARASSMENT", "threshold": "BLOCK_NONE"},
+            {"category": "HARM_CATEGORY_HATE_SPEECH", "threshold": "BLOCK_MEDIUM_AND_ABOVE"},
+            {"category": "HARM_CATEGORY_SEXUALLY_EXPLICIT", "threshold": "BLOCK_MEDIUM_AND_ABOVE"},
+            {"category": "HARM_CATEGORY_DANGEROUS_CONTENT", "threshold": "BLOCK_MEDIUM_AND_ABOVE"},
+        ]
+
+        # Initialize model and conversation
+        model = genai.GenerativeModel(
+            model_name="gemini-1.5-pro",
+            safety_settings=safety_settings,
+            generation_config=generative_config,
+        )
+        convo = model.start_chat(history=[])
+
+        # Generate feedback
+        convo.send_message(f"Act like a sleep advisor for better health. My client slept for {hours} hours. Please give suggestions on how to improve their sleeping habits. Make the response consise, and less than 200 words.")
+        feedback = convo.last.text
+
+        # Return feedback as JSON
+        return jsonify({"status": "success", "feedback": feedback})
+
+    except Exception as e:
+        # Handle errors gracefully
+        return jsonify({"status": "error", "message": str(e)})
+
+    
 @app.route('/logout', methods=['GET', 'POST'])
 def logout():
      session.clear()

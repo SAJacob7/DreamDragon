@@ -123,6 +123,44 @@ function closeModal() {
   modal.style.display = 'none';
   selectedDate = null;
 }
+function formatFeedback(rawFeedback) {
+  // Replace markdown-style bold (**text**) with HTML <strong>
+  rawFeedback = rawFeedback.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
+  // Replace markdown-style italic (*text*) with HTML <em>
+  rawFeedback = rawFeedback.replace(/\*(.*?)\*/g, "<em>$1</em>");
+  // Replace newlines with HTML <br> for line breaks
+  rawFeedback = rawFeedback.replace(/\n/g, "<br>");
+  return rawFeedback;
+}
+
+async function getFeedback(hours) {
+  try {
+    const response = await fetch('/api/feedback', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ hours }),
+    });
+
+    const result = await response.json();
+
+    if (result.status === "success") {
+      // Display feedback in the "sleepAnalytics" section
+      const analytics = document.getElementById('sleepAnalytics');
+      const formattedFeedback = formatFeedback(result.feedback);
+      analytics.innerHTML = `<h3>Sleep Analytics</h3> <p><strong>Feedback:</strong> ${formattedFeedback}</p>`;
+      // document.getElementById('sleepAnalytics').textContent = result.feedback;
+    } else {
+      alert('Error getting feedback: ' + (result.message || 'Unknown error'));
+    }
+  } catch (error) {
+    console.error(error);
+    alert('Failed to connect to server: ' + error.message);
+  }
+}
+
+
 
 // Save sleep data to server
 async function saveSleepData() {
@@ -153,6 +191,7 @@ async function saveSleepData() {
         sleepDataCache[cacheKey] = { ...sleepData }; // Update cached data
         renderCalendar();
         closeModal();
+        getFeedback(parseFloat(sleepHours));
       } else {
         alert('Error saving data: ' + (result.message || 'Unknown error'));
       }

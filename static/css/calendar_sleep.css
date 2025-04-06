@@ -5,6 +5,7 @@ body {
     margin: 20px;
     background-color: #f9f9f9;
   }
+
   
   /* Control Section Styling */
   #controls {
@@ -167,10 +168,31 @@ body {
     box-shadow: 0 0 8px #cad5f0;
   }
   
-  /* Placeholder Styling */
-  .styledInput::placeholder {
-    color: #aaa; /* Gray color for placeholder text */
-    font-style: italic;
+  #sleepAnalytics {
+    margin: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    background-color: #f7f9fc;
+    border-radius: 5px;
+    font-family: 'Arial', sans-serif;
   }
+  
+  #sleepAnalytics h3 {
+    color: #2c3e50;
+  }
+  
+  #sleepAnalytics p {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .analytics_UI {
+    text-align: center; /* Center-align content by default */
+  }
+  
+  .analytics_UI p {
+    text-align: left; /* Override paragraph to be left-aligned */
+    margin: 0 auto; /* Ensures paragraph stays within the container */
+  }
+  
   
   
