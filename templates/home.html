@@ -1,38 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 50px;
-        }
-        .nav-buttons {
-            margin-top: 20px;
-        }
-        button {
-            padding: 10px 20px;
-            margin: 10px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-    </style>
-</head>
-<body>
-    <h1>Welcome to DragonDreamer</h1>
-    <div class="nav-buttons">
-        <button onclick="window.location.href='/'">Home</button>
-        <button onclick="window.location.href='/calendar'">Calendar</button>
-        <button onclick="window.location.href='/game'">Game</button>
-        {% if logged_in %}
-            <button onclick="window.location.href='/profile'">Profile</button>
-        {% else %}
-        <button onclick="window.location.href='/login'">Log In</button>
-        {% endif %}
+{% extends 'base.html' %}
 
-    </div>
-</body>
-</html>
+
+{% block title %}Home Page{% endblock %}
+
+
+{% block content %}
+   <h1>Welcome to DragonDreamer!</h1>
+   <p>This is the home page content.</p>
+{% endblock %}

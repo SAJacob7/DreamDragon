@@ -1,0 +1,130 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+ }
+ 
+ 
+ .navbar {
+    background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2rem;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+ }
+ 
+ 
+ .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    max-width: 1500px;
+    width: 100%;
+    padding: 0 20px;
+    position: relative;
+ }
+ 
+ 
+ .navbar-logo {
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    z-index: 1;
+    position: relative;
+ }
+ 
+ 
+ .fa-typo3 {
+    margin-left: 0.5rem;
+    font-size: 1.8rem;
+ }
+ 
+ 
+ .nav-menu {
+    display: flex;
+    list-style: none;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+ }
+ 
+ 
+ .nav-item {
+    margin: 0 10px;
+ }
+ 
+ 
+ .nav-links {
+    color: #fff;
+    text-decoration: none;
+    padding: 0rem 1rem;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ }
+ 
+ 
+ .nav-links:hover {
+    border-bottom: 4px solid #fff;
+    transition: all 0.2s ease-out;
+ }
+ 
+ 
+ .menu-icon {
+    display: none;
+ }
+ 
+ 
+ @media screen and (max-width: 960px) {
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        background: #242222;
+        width: 100%;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 2rem;
+        text-align: center
+    }
+ 
+ 
+    .nav-menu.active {
+        display: flex;
+    }
+ 
+ 
+    .menu-icon {
+        display: block;
+        cursor: pointer;
+        font-size: 1.8rem;
+        color: white;
+        position: absolute;
+        right: 20px;
+        z-index: 2;
+    }
+ 
+ 
+    .navbar-logo{
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        font-size: 1.8rem
+    }
+ 
+ 
+    .navbar-container{
+        padding: 0 10px;
+    }
+ }
+ 

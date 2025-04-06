@@ -1,11 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sleep Tracker</title>
-  <link rel="stylesheet" href="../static/css/calendar_sleep.css">
-</head>
+{%extends 'base.html' %}
+
+
+{% block head %}
+ <title>Sleep Tracker</title>
+ <link rel="stylesheet" href="../static/css/calendar_sleep.css">
+{% endblock %}
+
+
+{% block content %}
+
 <body>
   <h1>Sleep Tracker</h1>
   <div id="controls">
@@ -45,3 +48,4 @@
   <script src="{{ url_for('static', filename='js/calendar_sleep.js') }}"></script>
 </body>
 </html>
+{% endblock %}

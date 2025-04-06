@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>DragonDreamer</title>
+ {% block head %}
+ {% endblock %}
+
+
+ <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+ <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+ <link
+   href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap"
+   rel="stylesheet"
+ />
+
+
+ <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+<body>
+   <div class="navbar">
+       <div class="navbar-container">
+           <a href="/" class="navbar-logo">
+               DragonDreamer <i class ='fab fa-typo3'></i>
+           </a>
+           <div class="menu-icon" onclick="toggleMenu()">
+               <i id= "menu-icon" class = "fas fa-bars"></i> 
+           </div>
+           <ul id= "nav-menu" class = "nav-menu">
+               <li class='nav-item'>
+                   <a href = '/' class ='nav-links'>
+                       Home
+                   </a>
+               </li>
+               <li class='nav-item'>
+                   <a href = '/calendar' class ='nav-links'>
+                       Calendar
+                   </a>
+               </li>
+               <li class='nav-item'>
+                   <a href = '/game' class ='nav-links'>
+                       Game
+                   </a>
+               </li>
+               {% if logged_in %}
+                   <li class='nav-item'>
+                       <a href = '/profile' class ='nav-links'>
+                           Profile
+                       </a>
+                   </li>
+               {% else %}
+                   <li class='nav-item'>
+                       <a href = '/login' class ='nav-links'>
+                           Login
+                       </a>
+                   </li>
+               {% endif %}
+           </ul>
+       </div>
+   </div>
+   <div class="content">
+       {% block content %}
+       {% endblock %}
+   </div>
+   <script>
+       function toggleMenu() {
+           const menu = document.getElementById('nav-menu');
+           menu.classList.toggle('active');
+       }
+   </script>
+</body>
+</html>

@@ -5,6 +5,11 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Dragon Game</title>
+        <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+       <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+       <link
+         href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap"
+         rel="stylesheet"/>
         <style>
             body {
                 display: flex;
@@ -29,6 +34,7 @@
             canvas#game {
                 position: absolute;
                 bottom: 100px;
+                z-index: 1;
             }
             #background-strip {
                 position: fixed;
@@ -36,14 +42,116 @@
                 left: 0;
                 width: 100%;
                 height: 150px;
-                background-color: #D6EBCA; /* light sky blue or whatever you want */
+                background-color: #D6EBCA;
                 z-index: 0;
             }
+            #menu-container {
+               position: fixed;
+               top: 20px;
+               right: 20px;
+               z-index: 2;
+               background-color: rgba(255, 255, 255, 0.8);
+               padding: 6px 8px;
+               border-radius: 6px;
+           }
+
+
+           #menu-button {
+               cursor: pointer;
+               font-size: 22px;
+               font-weight: bold;
+               background: none;
+               border: none;
+               color: #333;
+               /* font-family: Arial, sans-serif; */
+           }
+
+
+           #nav-menu {
+               display: none;
+               position: absolute;
+               top: 40px;
+               right: 0;
+               background-color: rgba(255, 255, 255, 0.9);
+               border-radius: 5px;
+               box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+               list-style:none;
+               padding: 6px 8px;
+               margin: 0;
+           }
+
+
+           #nav-menu.active {
+               display:block;
+           }
+
+
+           #nav-menu .nav-item {
+               margin: 4px 0;
+           }
+
+
+           #nav-menu .nav-links {
+               text-decoration: none;
+               color: #333;
+               padding: 6px 10px;
+               display: block;
+               font-size: 14px;
+           }
+
+
+           #nav-menu .nav-links:hover {
+               background-color: #f0f0f0;
+           }
+
         </style>
         <script src="../static/js/Index.js" defer type="module"></script>
     </head>
     <body>
-            <div id="background-strip"></div>
-            <canvas id="game"></canvas>
-    </body>
+        <div id="background-strip"></div>
+        <div id="menu-container">
+            <button id="menu-button" class = "fas fa-bars"> Menu</button>
+            <ul id = "nav-menu">
+                <li class='nav-item'>
+                    <a href = '/' class ='nav-links'>
+                        Home
+                    </a>
+                </li>
+                <li class='nav-item'>
+                    <a href = '/calendar' class ='nav-links'>
+                        Calendar
+                    </a>
+                </li>
+                <li class='nav-item'>
+                    <a href = '/game' class ='nav-links'>
+                        Game
+                    </a>
+                </li>
+                {% if logged_in %}
+                    <li class='nav-item'>
+                        <a href = '/profile' class ='nav-links'>
+                            Profile
+                        </a>
+                    </li>
+                {% else %}
+                    <li class='nav-item'>
+                        <a href = '/login' class ='nav-links'>
+                            Login
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+        <canvas id="game"></canvas>
+       
+        <script>
+            const menuButton = document.getElementById('menu-button');
+            const navMenu = document.getElementById('nav-menu');
+
+
+            menuButton.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+        </script>
+</body>
 </html>

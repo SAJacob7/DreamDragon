@@ -27,9 +27,10 @@ def home():
 
 @app.route('/calendar')
 def calendar():
-    if 'username' not in session:
-        return redirect(url_for('login'))
-    return render_template('calendar_front.html')
+   if 'username' not in session:
+       return redirect(url_for('login'))
+   return render_template('calendar_front.html', logged_in = True)
+
 
 @app.route('/api/sleep', methods=['POST'])
 def log_sleep():
@@ -87,9 +88,9 @@ def register():
 
 @app.route('/game')
 def game():
-    if 'username' not in session:
-        return redirect(url_for('login'))
-    return render_template('index.html')
+   if 'username' not in session:
+       return redirect(url_for('login'))
+   return render_template('index.html', logged_in = True)
 
 @app.route('/api/register', methods=['POST'])
 def register_user():
@@ -114,17 +115,19 @@ def register_user():
    
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
+   if request.method == 'POST':
+       username = request.form['username']
+       password = request.form['password']
 
-        sleep_tracker = Database()
-        if sleep_tracker.login_auth(username, password):
-            session['username'] = username
-            return redirect(url_for('home'))
-        else:
-            return render_template('login.html', error="Invalid credentials")
-    return render_template('login.html')
+
+       sleep_tracker = Database()
+       if sleep_tracker.login_auth(username, password):
+           session['username'] = username
+           return redirect(url_for('home'))
+       else:
+           return render_template('login.html', error="Invalid credentials")
+   return render_template('login.html', logged_in = False)
+
 @app.route('/api/check_points')
 def checkPointsBeforeGame():
    database = Database()
