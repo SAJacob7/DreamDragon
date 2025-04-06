@@ -23,7 +23,7 @@ This helps motivate the user to try to engage more with their sleep and encourag
 ## User Manual
 Installing the Dream Dragon app is very simple. Start by cloning this GitHub repo as seen below.
 ```
-  git clone git@github.com:SAJacob7/DreamDragon.git
+  git clone https://github.com/SAJacob7/DreamDragon.git
 ```
 
 Once it is installed, we can run the following command to make sure that all packages are installed for Dream Dragon. Make sure to run this command in the repo that you have.
