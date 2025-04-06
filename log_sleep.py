@@ -135,6 +135,7 @@ def checkDragonLevel():
    database = Database()
    result = database.get_dragon_level(session['username'])
    return jsonify({"level": result})
+
 @app.route('/api/upgrade_dragon')
 def canUpgradeDragon():
   database = Database()

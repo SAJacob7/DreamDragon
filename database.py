@@ -47,7 +47,8 @@ class Database:
                                    "Last Day Logged": 0,
                                    "Game Credit": 0,
                                    "Sleep Points": 0,
-                                   "Dragon Level": 0
+                                   "Dragon Level": 0,
+                                   "Upgrade Status": False
                                    })
            return True
 
@@ -128,19 +129,19 @@ class Database:
    def dragon_level_up (self, userID):
        user = self.users.find_one({"UserID": userID}, {"Sleep Points": 1, "_id": 0})
        if user and user.get("Sleep Points", 0) == 3:
-           self.users.update_one({"UserID": userID}, {"$inc": {"Dragon Level": 1}})
+           self.users.update_one({"UserID": userID}, {"$inc": {"Dragon Level": 1}, "$set": {"Upgrade Status": True}})
            return True
        elif user and user.get("Sleep Points", 0) == 10:
-           self.users.update_one({"UserID": userID}, {"$inc": {"Dragon Level": 1}})
+           self.users.update_one({"UserID": userID}, {"$inc": {"Dragon Level": 1}, "$set": {"Upgrade Status": True}})
            return True
        elif user and user.get("Sleep Points", 0) == 20:
-           self.users.update_one({"UserID": userID}, {"$inc": {"Dragon Level": 1}})
+           self.users.update_one({"UserID": userID}, {"$inc": {"Dragon Level": 1}, "$set": {"Upgrade Status": True}})
            return True
        elif user and user.get("Sleep Points", 0) == 30:
-           self.users.update_one({"UserID": userID}, {"$inc": {"Dragon Level": 1}})
+           self.users.update_one({"UserID": userID}, {"$inc": {"Dragon Level": 1}, "$set": {"Upgrade Status": True}})
            return True
        elif user and user.get("Sleep Points", 0) == 40:
-           self.users.update_one({"UserID": userID}, {"$inc": {"Dragon Level": 1}})
+           self.users.update_one({"UserID": userID}, {"$inc": {"Dragon Level": 1}, "$set": {"Upgrade Status": True}})
            return True
        else:
            return False
