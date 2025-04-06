@@ -112,13 +112,13 @@ body {
   
   /* Styling for Logged Days */
   #calendarTable td.logged {
-    background-color: #d5b1ef;
+    background-color: #FFBD0F;
   }
   
   /* Styling for Selected Day */
   #calendarTable td.selected {
-    border: 2px solid #cad5f0;
-    background-color: #95abec;
+    border: 2px solid #E8E8E8;
+    background-color: #afafaf;
   }
   
   /* Hover Effect for Days */

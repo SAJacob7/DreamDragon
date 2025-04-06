@@ -142,9 +142,9 @@ function showGameOver() { // CHANGE
    // Show points left to player
    // Message like sleep more to play again
    const fontSize = 50 * scaleRatio * 0.8;
-   ctx.font = `${fontSize}px Verdana`;
+   ctx.font = `${fontSize}px Arial`;
    ctx.fillStyle = "white";
-   const x = canvas.width / 4.5;
+   const x = canvas.width / 3;
    const y = canvas.height / 2;
    ctx.fillText("GAME OVER", x, y);
 }
@@ -152,9 +152,9 @@ function showGameOver() { // CHANGE
 
 function showStartGameText() {
    const fontSize = 50 * scaleRatio * 0.8;
-   ctx.font = `${fontSize}px Verdana`;
+   ctx.font = `${fontSize}px Arial`;
    ctx.fillStyle = "white";
-   const x = canvas.width / 4.5;
+   const x = canvas.width / 3.5;
    const y = canvas.height / 2;
    ctx.fillText("TAP TO START", x, y);
 }
