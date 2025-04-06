@@ -3,31 +3,37 @@
 
 {% block head %}
     <title>Log In</title>
+    <link rel="stylesheet" href="../static/css/login.css">
 {% endblock %}
 
 
 {% block content %}
 
 <body>
-    <h1>Log In</h1>
-    
-    {% if error %}
-        <p style="color:red;">{{ error }}</p>
-    {% endif %}
-
-    <form method="POST" action="{{ url_for('login') }}">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
+    <div class="login-wrapper">
+      <div class="login-container">
+        <h1>Log In</h1>
+        
+        {% if error %}
+          <p>Oops! Looks like you aren't a registered dragon 🐉. <br> {{ error }}</p>
+        {% endif %}
+  
+        <form method="POST" action="{{ url_for('login') }}">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" required>
+          
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required>
+          
+          <button type="submit">Log In</button>
+        </form>
+  
         <br>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-        <br>
-        <button type="submit">Log In</button>
-    </form>
-
-    <br>
-    <a href="/">Back to Home</a>
-    <p>Don't have an account? <a href="{{ url_for('register') }}">Register</a></p>
-</body>
+        <a href="/">Back to Home</a>
+        <p>Don't have an account? <a href="{{ url_for('register') }}">Register</a></p>
+      </div>
+    </div>
+  </body>
+  
 </html>
 {% endblock %}
