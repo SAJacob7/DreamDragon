@@ -160,7 +160,7 @@ def profile():
  
      if not user_data:
          return redirect(url_for('home'))
-     return render_template('profile.html', user_data=user_data)
+     return render_template('profile.html', logged_in = True, user_data=user_data)
  
  
 @app.route('/api/feedback', methods=['POST'])

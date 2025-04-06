@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap"
+      rel="stylesheet"/>
+
     <style>
         body {
            font-family: Arial, sans-serif;
@@ -51,6 +58,67 @@
            display: none;
            width: 40vw; /* Or use per-image width if you want */
        }
+
+       #menu-container {
+               position: fixed;
+               top: 20px;
+               right: 20px;
+               z-index: 2;
+               background-color: rgba(255, 255, 255, 0.8);
+               padding: 0px 0px;
+               border-radius: 6px;
+           }
+
+
+        #menu-button {
+            cursor: pointer;
+            font-size: 22px;
+            font-weight: bold;
+            background: none;
+            border: none;
+            color: #333;
+            padding: 0px 0px;
+            width: 100px;
+            /* font-family: Arial, sans-serif; */
+        }
+
+
+        #nav-menu {
+            display: none;
+            position: absolute;
+            top: 45px;
+            right: 0;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            list-style:none;
+            padding: 6px 8px;
+            margin: 0;
+        }
+
+
+        #nav-menu.active {
+            display:block;
+        }
+
+
+        #nav-menu .nav-item {
+            margin: 4px 0;
+        }
+
+
+        #nav-menu .nav-links {
+            text-decoration: none;
+            color: #333;
+            padding: 6px 10px;
+            display: block;
+            font-size: 14px;
+        }
+
+
+        #nav-menu .nav-links:hover {
+            background-color: #f0f0f0;
+        }
     </style>
 </head>
 <body>
@@ -67,9 +135,44 @@
         <p><strong>First Name:</strong> {{ user_data['First Name'] }}</p>
         <p><strong>Last Name:</strong> {{ user_data['Last Name'] }}</p>
         <p><strong>Username:</strong> {{ user_data['Username'] }}</p>
-        <p><strong>Sleep Goal:</strong> {{ user_data['Goal'] }}</p>
+        <p><strong>Sleep Goal:</strong> {{ user_data['Sleep Goal'] }}</p>
         <p><strong>Sleep Points:</strong> {{ user_data['Points'] }}</p>
         <p><strong>Dragon Level:</strong> {{ user_data['Dragon Level'] }}</p>
+    </div>
+
+
+    <div id="menu-container">
+        <button id="menu-button" class = "fas fa-bars"> Menu</button>
+        <ul id = "nav-menu">
+            <li class='nav-item'>
+                <a href = '/' class ='nav-links'>
+                    Home
+                </a>
+            </li>
+            <li class='nav-item'>
+                <a href = '/calendar' class ='nav-links'>
+                    Calendar
+                </a>
+            </li>
+            <li class='nav-item'>
+                <a href = '/game' class ='nav-links'>
+                    Game
+                </a>
+            </li>
+            {% if logged_in %}
+                <li class='nav-item'>
+                    <a href = '/profile' class ='nav-links'>
+                        Profile
+                    </a>
+                </li>
+            {% else %}
+                <li class='nav-item'>
+                    <a href = '/login' class ='nav-links'>
+                        Login
+                    </a>
+                </li>
+            {% endif %}
+        </ul>
     </div>
    
     <a href="{{ url_for('logout') }}">
@@ -95,5 +198,14 @@
 
    <!-- Link to external JS file -->
    <script src="../static/js/avatar.js" defer></script>
+   <script>
+        const menuButton = document.getElementById('menu-button');
+        const navMenu = document.getElementById('nav-menu');
+
+
+        menuButton.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>

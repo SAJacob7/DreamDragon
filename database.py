@@ -23,11 +23,13 @@ class Database:
        
    def get_user_data(self, username):
          user = self.users.find_one({"UserID": username})
+         print("User Document:", user)
          if user:
             return {
                 "First Name": user.get("First Name"),
                 "Last Name": user.get("Last Name"),
                 "Username": user.get("UserID"),
+                "Sleep Goal": user.get("Sleep Goal"),
                 "Points": user.get("Sleep Points"),
                 "Dragon Level": user.get("Dragon Level"),
                 "Game Points": user.get("Game Points")
