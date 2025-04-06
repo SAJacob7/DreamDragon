@@ -13,10 +13,10 @@ body {
     z-index: 10;
   }
   p {
-    color: #ff9890
+    color: #333333
   }
   h1 {
-    color: #ff9890
+    color: #333333
   }
   /* label {
     color: #ff9890
@@ -33,7 +33,7 @@ body {
     width: 400px;
     padding: 30px;
     border-radius: 10px;
-    background-color: #e5e5e5;
+    background-color: #FAF7F2;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
   }
@@ -47,7 +47,7 @@ body {
   
   /* Error messages */
   .login-container p {
-    color: #ff9890;
+    color:#007bff;
     margin-bottom: 15px;
   }
   
@@ -72,14 +72,14 @@ body {
     font-size: 18px;
     font-weight: bold;
     color: #ffffff;
-    background-color: #ffca26;
+    background-color: #FF9893;
     border: none;
     border-radius: 5px;
     cursor: pointer;
   }
   
   .login-container button:hover {
-    background-color: #0056b3;
+    background-color: #007bff;
   }
   
   /* Links */
