@@ -5,7 +5,7 @@ canvas.height = window.innerHeight;
 
 
 const yPositions = [20, 70, 120]
-const cloudImagePaths = ['../static/images/cloud1.png', '../static/images/cloud2.png'];
+const cloudImagePaths = ['../static/images/1cloud.png', '../static/images/2cloud.png', '../static/images/3cloud.png', '../static/images/4cloud.png'];
 const cloudImages = [];
 const clouds = [];
 const activeY = new Set();
@@ -76,7 +76,7 @@ function drawClouds() {
 
    for (let i = clouds.length - 1; i >= 0; i--) {
        const cloud = clouds[i];
-       ctx.drawImage(cloud.image, cloud.x, cloud.y, 300, 300);
+       ctx.drawImage(cloud.image, cloud.x, cloud.y, canvas.width/4, canvas.height/4);
        cloud.x += cloud.speed;
 
 

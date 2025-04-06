@@ -10,7 +10,7 @@ export default class Cloud {
         this.x = 0;
         this.y = this.canvas.height - this.height;
         this.cloudImg = new Image();
-        this.cloudImg.src = '../static/images/cloud4.png';
+        this.cloudImg.src = '../static/images/cloud_background.png';
     }
 
     update(gameSpeed, frameTimeDelta) {

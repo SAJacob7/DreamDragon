@@ -219,7 +219,7 @@ function gameLoop(currentTime) {
    if (!gameOver && starController.collideWith(player)) {
        gameOver = true;
        setupGameReset();
-       score.setHighScore();
+    //    score.setHighScore();
    }
 
 

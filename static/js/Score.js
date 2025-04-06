@@ -39,6 +39,5 @@ export default class Score {
         const highScorePadded = highScore.toString().padStart(3, 0);
 
         this.ctx.fillText(scorePadded, scoreX, y);
-        this.ctx.fillText(`HI ${highScorePadded}`, highScoreX, y);
     }
 }
