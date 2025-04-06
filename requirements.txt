@@ -1,0 +1,7 @@
+Flask
+CORS
+pymongo
+os
+webbrowser
+Timer
+generativeai
