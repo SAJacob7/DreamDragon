@@ -1,20 +1,33 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Register</title>
-</head>
-<body>
-  <h2>Register</h2>
-  <form id="registerForm">
-    <input type="text" name="first_name" placeholder="First Name" required><br><br>
-    <input type="text" name="last_name" placeholder="Last Name" required><br><br>
-    <input type="text" name="username" placeholder="Username" required><br><br>
-    <input type="password" name="password" placeholder="Password" required><br><br>
-    <input type="number" name="goal" placeholder="Goal" required><br><br>
-    <button type="submit">Register</button>
-  </form>
+{% extends 'base.html' %}
 
-  <p>Already have an account? <a href="/login">Login here</a></p>
+{% block head %}
+ <title>Register</title>
+ <link rel="stylesheet" href="../static/css/register.css">
+{% endblock %}
+
+{% block content %}
+<body>
+  <div class="register-container">
+    <!-- Image section on the left -->
+    <div class="image-section">
+      <img src="../static/images/register-image.jpg" alt="Welcome Image" style="max-width: 100%; height: auto; border-radius: 8px;">
+    </div>
+
+    <!-- Register form on the right -->
+    <div class="form-section">
+      <h2 style="text-align: center;">Register</h2>
+      <form id="registerForm">
+        <input type="text" name="first_name" placeholder="First Name" required>
+        <input type="text" name="last_name" placeholder="Last Name" required>
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <input type="number" name="goal" placeholder="Goal" required>
+        <button type="submit">Register</button>
+      </form>
+
+      <p>Already have an account? <a href="/login">Login here</a></p>
+    </div>
+  </div>
 
   <script>
     document.getElementById("registerForm").onsubmit = async (e) => {
@@ -39,4 +52,4 @@
     };
   </script>
 </body>
-</html>
+{% endblock %}
