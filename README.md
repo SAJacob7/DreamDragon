@@ -40,6 +40,9 @@ To learn more about AWS Rekognition, please click on this link:
 https://docs.aws.amazon.com/rekognition/latest/dg/labels-detect-labels-image.html
 This project has components powered by AWS Rekognition API and backend work of MongoDB.
 
+## Future Implementation
+For the future we hope to imrpove our website by adding more games to help provide users more variety. Additionally in order to help useres stay motivated and help them improve tehir sleep schedules alonside their peers, we hope to  implemet a leadership board and also allow useres to form groups with their freinds and familys to help keep track of who has achived the most sleep. By doing so we hope to motivate useres to improve their sleeping cycles as it is the most itergral aprt of one's health!
+
 ### Sources:
 https://www.hopkinsmedicine.org/health/wellness-and-prevention/health-risks-of-poor-sleep
 https://www.nhlbi.nih.gov/health/sleep-deprivation
