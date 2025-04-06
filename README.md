@@ -33,12 +33,15 @@ python3 -m pip install -r requirements.txt
 Once installed, Dream Dragon will be ready for you to use! Please run the log_sleep.py file. From there, the Dream Dragon webpage will load on your screen and you can start creating accounts and interacting with your dragons.
 
 ## Technologies Used
-We built our app using Python Flask framework for the front end, Amazon Web Services Rekognition for the image recognition software, and MongoDB atlas for the backend database applications. We constructed the Pyhton Flask app using libraries such as Pandas, PyMongo, etc. For AWS Rekognition we used other AWS tools such as S#, IAM, Lambda, etc. We integrated the front as the main source of interaction between the users, and the AWS Rekognition API as well as CV2 (for the camera) was embedded into the frontend to make it seem like a seamless tool. The MongoDB was implemented in the backend and it communicated with both the AWS Rekognition API as well as the Kivy front-end app.
+We built our app using the Flask Python Framework, Gemini API for sleep analysis software, MongoDB atlas for the backend database applications, ChatBase for the ChatBot, HTML-5 Canvas for the UI and game effects, and we all learned how to use JavaScript for creating APIs and the connections.
+
+**Learning:**
+- Sophia: Sophia worked on creating the AI-related tools, like the Gemini API sleep analysis software in our app. This was a completely brand new tool for her, and she learned how to communicate with AI models through code, and how to service these prompt feedback onto websites. She also learned JavaScript during the creation of this app by creating the Calendar Page and its existing functionalities, such as UI-design, saving the days and sleep hours, and displaying the calendar.
+- Anna: Anna created the full Dragon Game and used and learned HTML-5 Canvas on this project. This was a relatively new tool for her, as well. She also extensively worked with JavaScript to create her functionalities. Anna was also the one to hand-draw all of our dragons and other UI-based drawings for a seemless and beautiful experience for the user. It was her first time using ProCreate to do so.
+- Kusuma: Kusuma worked on creating the front end and integrating it with the backend and AI. She got to improve her skills and experience with the Flask framework which was very new to her. Additionally it was her first time trying to integrate many components into a website while still trying to maintain a user freindly approach. She had to utilize Flask, javascript, css, and HTML. Through this project development expereince Kusuma was able to applier her database knwolegde, and UI experience to elp create a wonderful project.
+
 To learn more about MongoDB, please click on this link:
 https://www.mongodb.com/languages/python/pymongo-tutorial
-To learn more about AWS Rekognition, please click on this link:
-https://docs.aws.amazon.com/rekognition/latest/dg/labels-detect-labels-image.html
-This project has components powered by AWS Rekognition API and backend work of MongoDB.
 
 ## Future Implementation
 For the future we hope to imrpove our website by adding more games to help provide users more variety. Additionally in order to help useres stay motivated and help them improve tehir sleep schedules alonside their peers, we hope to  implemet a leadership board and also allow useres to form groups with their freinds and familys to help keep track of who has achived the most sleep. By doing so we hope to motivate useres to improve their sleeping cycles as it is the most itergral aprt of one's health!
