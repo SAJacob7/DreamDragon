@@ -3,8 +3,6 @@ from flask_cors import CORS
 from database import Database
 from datetime import datetime
 import pymongo
-import bcrypt
-import uuid
 import os
 import google.generativeai as genai
 
@@ -137,6 +135,12 @@ def checkDragonLevel():
    database = Database()
    result = database.get_dragon_level(session['username'])
    return jsonify({"level": result})
+@app.route('/api/upgrade_dragon')
+def canUpgradeDragon():
+  database = Database()
+  result = database.upgrade_dragon(session['username'])
+  return jsonify({"status": result})
+
 
 
 @app.route('/profile')

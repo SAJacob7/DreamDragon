@@ -151,3 +151,10 @@ class Database:
            return user.get("Dragon Level", 0)
        else:
            return False
+   def upgrade_dragon (self, userID):
+      user = self.users.find_one({"UserID": userID}, {"Upgrade Status": 1, "_id": 0})
+      if user and user.get("Upgrade Status", 0):
+          self.users.update_one({"UserID": userID}, {"$set": {"Upgrade Status": False}})
+          return True
+      else:
+          return False

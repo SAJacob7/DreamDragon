@@ -1,42 +1,99 @@
 <!DOCTYPE html>
- <html lang="en">
- <head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Home</title>
-     <style>
-         body {
-             font-family: Arial, sans-serif;
-             text-align: center;
-             margin: 50px;
-         }
-         .nav-buttons {
-             margin-top: 20px;
-         }
-         button {
-             padding: 10px 20px;
-             margin: 10px;
-             font-size: 16px;
-             cursor: pointer;
-         }
-     </style>
- </head>
- 
- <body>
-     <h1>Hello {{ user_data['First Name'] }} {{ user_data['Last Name'] }}!</h1>
- 
-     <div class="profile-info">
-         <p><strong>First Name:</strong> {{ user_data['First Name'] }}</p>
-         <p><strong>Last Name:</strong> {{ user_data['Last Name'] }}</p>
-         <p><strong>Username:</strong> {{ user_data['Username'] }}</p>
-         <p><strong>Sleep Goal:</strong> {{ user_data['Goal'] }}</p>
-         <p><strong>Sleep Points:</strong> {{ user_data['Points'] }}</p>
-         <p><strong>Game Points:</strong> {{ user_data['Game Points'] }}</p>
-         <p><strong>Dragon Level:</strong> {{ user_data['Dragon Level'] }}</p>
-     </div>
-     
-     <a href="{{ url_for('logout') }}">
-         <button>Logout</button>
-     </a>    
- </body>
- </html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        body {
+           font-family: Arial, sans-serif;
+           text-align: center;
+           margin: 50px;
+           background-color: skyblue;
+           position: relative;
+           z-index: 0;
+       }
+        .nav-buttons {
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        canvas {
+           position: fixed;
+           top: 0;
+           left: 0;
+           z-index: -1;
+           width: 100%;
+           height: 100%;
+       }
+
+
+       #img1 {  
+           width: 40vw; /* Responsive size */
+       }
+
+
+       #img2, #img3, #img4, #img5, #img6 {  
+           width: 20vw; /* Responsive size */
+       }
+
+
+       .sequence-img {
+           position: absolute;
+           left: 52%;
+           top: 170%;
+           transform: translate(-50%, -50%);
+           cursor: pointer;
+           display: none;
+           width: 40vw; /* Or use per-image width if you want */
+       }
+    </style>
+</head>
+<body>
+    <h1>Hello {{ user_data['First Name'] }} {{ user_data['Last Name'] }}!</h1>
+    <canvas id="cloudCanvas"></canvas>
+
+
+   <!-- Preload cloud images (hidden) -->
+   <div style="display: none;">
+       <img id="cloud1" src="../static/images/cloud1.png" style="display:none" />
+       <img id="cloud2" src="../static/images/cloud1.png" style="display:none" /> 
+   </div>
+    <div class="profile-info">
+        <p><strong>First Name:</strong> {{ user_data['First Name'] }}</p>
+        <p><strong>Last Name:</strong> {{ user_data['Last Name'] }}</p>
+        <p><strong>Username:</strong> {{ user_data['Username'] }}</p>
+        <p><strong>Sleep Goal:</strong> {{ user_data['Goal'] }}</p>
+        <p><strong>Sleep Points:</strong> {{ user_data['Points'] }}</p>
+        <p><strong>Dragon Level:</strong> {{ user_data['Dragon Level'] }}</p>
+    </div>
+   
+    <a href="{{ url_for('logout') }}">
+        <button>Logout</button>
+    </a>
+   
+
+
+   <!-- <div>
+       <img id="egg" src="../static/images/egg.png" alt="myImage" onclick="hideImage()">
+   </div> -->
+   <div id="imageContainer">
+       <img class="sequence-img" id="img1" src="../static/images/egg.png">
+       <img class="sequence-img" id="img2" src="../static/images/dragon1.png">
+       <img class="sequence-img" id="img3" src="../static/images/dragon2.png">
+       <img class="sequence-img" id="img4" src="../static/images/dragon3.png">
+       <img class="sequence-img" id="img5" src="../static/images/dragon4.png">
+       <img class="sequence-img" id="img6" src="../static/images/dragon5.png">
+   </div>
+
+
+
+
+   <!-- Link to external JS file -->
+   <script src="../static/js/avatar.js" defer></script>
+</body>
+</html>
